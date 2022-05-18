@@ -9,6 +9,10 @@ WORKDIR /usr/src/app
 COPY package.json yarn.lock ./
 RUN yarn install
 
+# to genearte the PRISMA package inside the container
+COPY prisma/schema.prisma ./prisma/
+RUN npx prisma generate
+
 COPY . .
 
 RUN yarn build
