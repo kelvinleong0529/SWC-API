@@ -5,7 +5,7 @@ const app = express();
 app.use(morgan('dev'))
 
 app.get('/', (req, res) => {
-    res.json({ hello: 'world!' })
+    res.json({ hello: 'World!' })
 })
 
 // everything that comes through environment variable is a string

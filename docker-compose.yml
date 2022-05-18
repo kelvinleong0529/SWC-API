@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  backend:
+    # we can use a pre-built image
+    # but here we will build the docker image based on the Dockerfile in the current directory
+    build: .
+    ports:
+      - 8000:8000
+      - 9229:9229 # debugger port
+    volumes:
+      # map everything in the current local directory to the working directory in docker image
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    command: yarn start:docker
+    environment:
+      PORT: 8000
+    
